@@ -1,5 +1,7 @@
 # Validating Markdown Structures
 
+Blog post: https://alganet.github.io/blog/2026-02-11-02-Validating-Markdown-Structure-in-a-Single-Declarative-Expression.html
+
 This is an example of using Respect\Validation and League\Commonmark
 to parse and validate markdown document structure and contents.
 

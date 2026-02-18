@@ -1,0 +1,38 @@
+name: CI
+description: Basic smoke tests to guarantee that example keeps working after updates
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  smoke:
+    name: Smoke tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Execute top-level PHP scripts
+        run: |
+          set -euo pipefail
+          echo "Running top-level PHP scripts in repository root..."
+          scripts=$(find . -maxdepth 1 -type f -name '*.php' -print)
+          if [ -z "$scripts" ]; then
+            echo "No top-level PHP scripts found."
+            exit 0
+          fi
+          for s in $scripts; do
+            echo "-> php $s"
+            php "$s"
+          done

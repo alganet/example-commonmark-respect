@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     open-pull-requests-limit: 5
     # Uncomment / adjust the following if you want Dependabot to apply specific labels or reviewers
     # labels:

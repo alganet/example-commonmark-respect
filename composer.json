@@ -1,6 +1,6 @@
 {
     "require": {
-        "league/commonmark": "^2.8",
-        "respect/validation": "^3.0"
+        "league/commonmark": "^2",
+        "respect/validation": "^3"
     }
 }
